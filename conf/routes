@@ -1,0 +1,9 @@
+GET     /swagger.json           controllers.ApiHelpController.getResources
+GET     /docs/                  controllers.Assets.at(path="/public/swagger-ui",file="index.html")
+GET     /docs/*file             controllers.Assets.at(path="/public/swagger-ui",file)
+
+GET     /cars                   controllers.CarAdvertController.getAllCars(pageNumber: Int, pageSize: Int, sortField: String, sortOrder: String)
+GET     /cars/:id               controllers.CarAdvertController.getById(id: String)
+POST    /cars/save              controllers.CarAdvertController.saveCar
+POST    /cars/update/:id        controllers.CarAdvertController.updateCar(id: String)
+DELETE  /cars/:id               controllers.CarAdvertController.delete(id: String)
