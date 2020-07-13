@@ -13,11 +13,14 @@ import play.api.Logger
 import scala.collection.mutable.ListBuffer
 import scala.concurrent.{ExecutionContext, Future}
 
+/**
+ * Car advertising dao class
+ * @author Sergiy Koyev
+ */
 class CarAdvertDao @Inject()(elasticsearch: ElasticsearchHttpClient)
                             (implicit executionContext: ExecutionContext) {
 
   val logger = Logger(this.getClass)
-  val cars = ListBuffer[Car]()
 
   /**
    * Add a new Car into storage
@@ -26,10 +29,6 @@ class CarAdvertDao @Inject()(elasticsearch: ElasticsearchHttpClient)
    */
   def add(carModel: Car): Future[Car] = {
     val target = carModel.copy(id = Some(carModel.encodedId))
-
-    //cars += target
-
-    logger.debug(String.valueOf(cars.length))
 
     for {
       result <- if (elasticsearch.refresh) elasticsearch.execute {
@@ -68,8 +67,8 @@ class CarAdvertDao @Inject()(elasticsearch: ElasticsearchHttpClient)
 
   /**
    * Remove car from storage
-   * @param id
-   * @return
+   * @param id car identifier
+   * @return result of operation Future
    */
   def remove(id: UUID): Future[Boolean] = {
     for {
@@ -92,12 +91,12 @@ class CarAdvertDao @Inject()(elasticsearch: ElasticsearchHttpClient)
   }
 
   /**
-   * Get All Cars.
+   * Get All Cars by params from, pageSize, sortField, sortOrder
    * @param from
    * @param pageSize
    * @param sortField
    * @param sortOrder
-   * @return
+   * @return collection of the Car objects.
    */
   def getAll(from: Int, pageSize: Int, sortField: String, sortOrder: String): Future[PageResult] = {
 

@@ -1,4 +1,4 @@
-# Play REST/ElasticSearch API
+# Scala Play REST/ElasticSearch API
 
 ## Appendix
 
@@ -48,6 +48,7 @@ sbt test
 
 #### Swagger
 * Swagger documentation of REST APIs can be found at <http://localhost:9000/docs/>
+![Screenshot](img.png)
 
 #### Author
  **Sergiy Koyev** 

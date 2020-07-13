@@ -9,6 +9,10 @@ import play.api._
 import play.api.inject._
 import scala.concurrent.ExecutionContext.Implicits.global
 
+/**
+ * Project DB Module class for the ElasticsearchHttpClient. 
+ * @author Sergiy Koyev
+ */
 class DBModule extends Module {
 
   private val logger = LoggerFactory.getLogger(getClass)

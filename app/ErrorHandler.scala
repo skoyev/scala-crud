@@ -11,6 +11,10 @@ import play.core.SourceMapper
 
 import scala.concurrent._
 
+/**
+ * Rest API Error Handling.
+ * @author Sergiy Koyev
+ */
 class ErrorHandler(environment: Environment,
                    configuration: Configuration,
                    sourceMapper: Option[SourceMapper] = None,

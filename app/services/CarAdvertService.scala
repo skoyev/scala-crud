@@ -11,10 +11,11 @@ import play.api.Logger
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
- * Car advertisment service class.
+ * Car advertisment service class for Car CRUD operations.
  * @author Sergiy Koyev
  * @param dao
  * @param executionContext
+ * @author Sergiy Koyev
  */
 class CarAdvertService @Inject()(dao: CarAdvertDao)(implicit executionContext: ExecutionContext) {
 

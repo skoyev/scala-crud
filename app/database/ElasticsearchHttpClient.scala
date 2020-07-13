@@ -7,6 +7,10 @@ import com.sksamuel.elastic4s.http.{HttpClient, HttpRequestClient}
 import javax.inject.Inject
 import play.api.Configuration
 
+/**
+ * ElasticsearchHttpClient Http Client class for DAO access.
+ * @author Sergiy Koyev
+ */
 class ElasticsearchHttpClient @Inject()(configuration: Configuration) extends HttpClient {
 
   val refresh = configuration.getBoolean("elasticsearch.refresh").getOrElse(false)
